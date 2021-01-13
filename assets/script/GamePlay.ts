@@ -90,10 +90,13 @@ export class Game extends cc.Component {
     }
     // console.log(' chieu dai mang la :' + this.lstPlayer.length);
   }
-
-  changeIcon() {}
-
-  createMatrix() {}
+  pauseGame() {
+    cc.director.pause();
+  }
+  resumeGame() {
+    cc.director.resume();
+  }
+  eventGame() {}
 
   // upgradeHeightPlayer() {}
   // listEatItem() {

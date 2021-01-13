@@ -94,6 +94,7 @@ export class Game extends cc.Component {
   changeIcon() {}
 
   createMatrix() {}
+
   // upgradeHeightPlayer() {}
   // listEatItem() {
   //   this.arrNode = [this.itemSave, this.itemSave, this.itemSave];

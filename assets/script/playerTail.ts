@@ -13,13 +13,14 @@ export default class NewClass extends cc.Component {
 
   @property(cc.Node)
   nodeImage: cc.Node = null;
+
   @property(cc.SpriteFrame)
   item: cc.SpriteFrame = null;
+
   @property(cc.SpriteFrame)
   itemPartner: cc.SpriteFrame = null;
+
   changeSprite() {
-    console.log('test');
-    console.log(this.itemPartner);
     if (
       this.nodeImage.getComponent(cc.Sprite).spriteFrame == this.itemPartner
     ) {

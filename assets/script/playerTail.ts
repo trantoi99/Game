@@ -20,6 +20,9 @@ export default class playerTail extends cc.Component {
   @property(cc.SpriteFrame)
   itemPartner: cc.SpriteFrame = null;
 
+  @property(cc.Node)
+  player: cc.Node = null;
+
   changeSprite() {
     if (
       this.nodeImage.getComponent(cc.Sprite).spriteFrame == this.itemPartner
@@ -32,10 +35,16 @@ export default class playerTail extends cc.Component {
     }
   }
 
-  onClickUp() {}
+  onClickUp() {
+    let action: any = cc.follow(
+      this.player,
+      cc.rect(this.player.x - 10, this.player.y - 10, 10, 10),
+    );
+    console.log('click here');
+  }
 
   onClickDown() {}
-  // onLoad () {}
+  onLoad() {}
 
   start() {}
 

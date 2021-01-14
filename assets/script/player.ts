@@ -9,11 +9,12 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Player extends cc.Component {
-  // @property(cc.Node)
-  // private playerTail: cc.Node = null;
+  @property(cc.Node)
+  private playerTail: cc.Node = null;
   // public beginPoint: number[] = null;
   arrGo: number[] = [];
   arrEnd: number[] = [];
+
   // public endPoint: any[] = null;
   // @property(cc.Float)
   //     private goDuration : number = 0;
@@ -119,6 +120,9 @@ export default class Player extends cc.Component {
 
   // // di chuyển các nút
   onClickUp() {
+    var arrX: number[] = [];
+    var arrY: number[] = [];
+
     let playerMoveUp: any = cc.moveBy(0, cc.v2(0, 100));
     // console.log("Bạn đã click nút trên");
     this.node.runAction(playerMoveUp);
@@ -126,6 +130,30 @@ export default class Player extends cc.Component {
     // console.log('Tọa độ Y là : ' + this.node.y);
     // this.arrGo.push(this.node.x, this.node.y);
     // console.log(this.arrGo);
+    arrX.push(this.node.x);
+    arrY.push(this.node.y);
+    let goUp: any = cc.moveTo(
+      0,
+      cc.v2(arrX[arrX.length - 1], arrY[arrY.length - 1]),
+    );
+    this.playerTail.runAction(goUp);
+
+    console.log(
+      'vi tri cua player(x,y) la : ' +
+        '(' +
+        this.node.x +
+        ',' +
+        this.node.y +
+        ')',
+    );
+    console.log(
+      'vi tri cua nut theo sau (x,y) la : ' +
+        '(' +
+        this.playerTail.x +
+        ',' +
+        this.playerTail.y +
+        ')',
+    );
 
     // let tailgoup: any = cc.moveBy(
     //   0,
@@ -162,26 +190,53 @@ export default class Player extends cc.Component {
   }
 
   onClickDown() {
+    var arrX: number[] = [];
+    var arrY: number[] = [];
     let playerMoveDown: any = cc.moveBy(0, cc.v2(0, -100));
     this.node.runAction(playerMoveDown);
+    arrX.push(this.node.x);
+    arrY.push(this.node.y);
+    let goUp: any = cc.moveTo(
+      0,
+      cc.v2(arrX[arrX.length - 1], arrY[arrY.length - 1]),
+    );
+    this.playerTail.runAction(goUp);
 
     // console.log('Tọa độ X là : ' + this.node.x);
     // console.log('Tọa độ Y là : ' + this.node.y);
   }
 
   onClickLeft() {
+    var arrX: number[] = [];
+    var arrY: number[] = [];
     let playerMoveLeft: any = cc.moveBy(0, cc.v2(-100, 0));
     // console.log("Bạn đã click nút trái");
     this.node.runAction(playerMoveLeft);
     // console.log('Tọa độ X là : ' + this.node.x);
     // console.log('Tọa độ Y là : ' + this.node.y);
+    arrX.push(this.node.x);
+    arrY.push(this.node.y);
+    let goUp: any = cc.moveTo(
+      0,
+      cc.v2(arrX[arrX.length - 1], arrY[arrY.length - 1]),
+    );
+    this.playerTail.runAction(goUp);
   }
 
   onClickRight() {
+    var arrX: number[] = [];
+    var arrY: number[] = [];
     let playerMoveRight: any = cc.moveBy(0, cc.v2(100, 0));
     this.node.runAction(playerMoveRight);
     // console.log('Tọa độ X là : ' + this.node.x);
     // console.log('Tọa độ Y là : ' + this.node.y);
+    arrX.push(this.node.x);
+    arrY.push(this.node.y);
+    let goUp: any = cc.moveTo(
+      0,
+      cc.v2(arrX[arrX.length - 1], arrY[arrY.length - 1]),
+    );
+    this.playerTail.runAction(goUp);
   }
 
   private addEventListeners() {

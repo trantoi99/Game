@@ -81,13 +81,7 @@ export class Game extends cc.Component {
     console.log('Do dai cua danh sach la :' + this.lstPlayer.length);
   }
   getPlayer() {
-    for (var i = 0; i < this.lstPlayer.length; i++) {
-      // this.player.addChild(this.player);
-      let acttion: any = cc.follow(this.player, cc.rect(0, 0, 60, 60));
-
-      this.lstPlayer[this.lstPlayer.length - 1].runAction(acttion);
-      console.log(this.lstPlayer[this.lstPlayer.length - 1]);
-    }
+    for (var i = 0; i < this.lstPlayer.length; i++) {}
     // console.log(' chieu dai mang la :' + this.lstPlayer.length);
   }
   pauseGame() {
